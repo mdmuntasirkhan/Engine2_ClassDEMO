@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "ATreasureChest.generated.h"
 
+class UStaticMeshComponent;
+
 UCLASS()
 class ENGINE2_CLASSDEMO_API AATreasureChest : public AActor
 {
@@ -23,4 +25,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UStaticMeshComponent>ChestMesh;
 };
