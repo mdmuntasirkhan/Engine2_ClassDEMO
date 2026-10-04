@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "ATreasureChest.generated.h"
 
+class UBoxComponent;
 class UStaticMeshComponent;
 
 UCLASS()
@@ -24,8 +25,18 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	// Collected
+	UPROPERTY()
+	bool bCollected = false;
+	
+	//
+	void Collected();
 
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UStaticMeshComponent>ChestMesh;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UBoxComponent>CollisionBox;
 };
